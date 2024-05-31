@@ -1,8 +1,9 @@
 import React from "react";
+import MobileWrapper from "../common/MobileWrapper";
 
 const Profile = () => {
   return (
-    <div className="mx-3 my-8 flex  flex-col">
+    <MobileWrapper>
       <h1 className="text-3xl font-extrabold mb-3">Account Settings</h1>
       <div className="mt-8 pb-10 border-b-2 border-gray-300">
         <label className="text-md font-bold text-gray-400">Name</label>
@@ -61,7 +62,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    </div>
+    </MobileWrapper>
   );
 };
 

@@ -8,10 +8,13 @@ import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import FriendsPage from "./components/pages/FriendsPage";
 import PrivateRoutes from "./utils/PrivateRoutes";
-import Groups from "./components/pages/Groups";
+import Groups from "./components/pages/groups/Groups";
 import Profile from "./components/pages/Profile";
 import AddExpense from "./components/pages/AddExpense";
 import ActivityPage from "./components/pages/ActivityPage";
+import GroupDetail from "./components/pages/groups/GroupDetail";
+import GroupSetting from "./components/pages/groups/GroupSetting";
+import AddGroupMember from "./components/pages/groups/AddGroupMember";
 const App = () => {
   let auth = {
     token: true,
@@ -29,6 +32,9 @@ const App = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/expense" element={<AddExpense />} />
             <Route path="/activity" element={<ActivityPage />} />
+            <Route path="/groups/:id" element={<GroupDetail />} />
+            <Route path="/groups/:id/edit" element={<GroupSetting />} />
+            <Route path="/add-member" element={<AddGroupMember />} />
           </Route>
           {/* common routes */}
           <Route path="/" element={<LandingPage />} />
