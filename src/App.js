@@ -15,6 +15,7 @@ import ActivityPage from "./components/pages/ActivityPage";
 import GroupDetail from "./components/pages/groups/GroupDetail";
 import GroupSetting from "./components/pages/groups/GroupSetting";
 import AddGroupMember from "./components/pages/groups/AddGroupMember";
+import NewContact from "./components/pages/commonPages/NewContact";
 const App = () => {
   let auth = {
     token: true,
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/groups/:id" element={<GroupDetail />} />
             <Route path="/groups/:id/edit" element={<GroupSetting />} />
             <Route path="/add-member" element={<AddGroupMember />} />
+            <Route path="/add-contact" element={<NewContact />} />
           </Route>
           {/* common routes */}
           <Route path="/" element={<LandingPage />} />

@@ -9,7 +9,7 @@ const Login = () => {
     console.log(email, password);
   };
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-full">
       <div className="mx-8 my-16">
         <div className="flex gap-4">
           <div className="h-8 w-8 rounded-xl">

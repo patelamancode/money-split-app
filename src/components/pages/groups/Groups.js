@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import MobileWrapper from "../../common/MobileWrapper";
 import { useNavigate } from "react-router";
+import NewGroupModal from "./NewGroupModal";
 
 const Groups = () => {
   const navigate = useNavigate();
+  const [createGroupModal, setCreateGroupModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setCreateGroupModal(true);
+  };
+  const handleCloseModal = () => {
+    setCreateGroupModal(false);
+  };
+  const handleSubmitModalData = (event) => {
+    setCreateGroupModal(false);
+  };
   const goToGroupdetail = () => {
     navigate("/groups/1");
   };
@@ -11,10 +23,18 @@ const Groups = () => {
     <MobileWrapper>
       <div className="flex justify-between ">
         <h1 className="text-3xl font-extrabold">Groups</h1>
-        <button className="text-sm  px-2 bg-black text-white border border-white rounded-xl">
+        <button
+          className="text-sm  px-2 bg-black text-white border border-white rounded-xl"
+          onClick={handleOpenModal}
+        >
           + Add Groups
         </button>
       </div>
+      <NewGroupModal
+        createGroup={createGroupModal}
+        onSubmit={handleSubmitModalData}
+        onClose={handleCloseModal}
+      />
       <div className="mt-10 flex flex-col gap-3">
         <div className="bg-slate-200 flex flex-col col-span-1 p-3 rounded-2xl">
           <p className="font-bold">Trip to Rishikesh</p>
