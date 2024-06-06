@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log(formData);
   };
   return (
     <div className="h-screen w-full">
@@ -27,14 +35,14 @@ const Login = () => {
             type="text"
             className="w-full border border-black rounded-lg px-4 py-2 mb-6"
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
           />
           <label className="text-md font-bold">Password</label>
           <input
             type="password"
             className="w-full border border-black rounded-lg px-4 py-2"
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <div className="mt-6">

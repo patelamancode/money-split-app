@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    consfirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      console.error("Passwords do not match");
-      return;
-    }
-
-    console.log(name, email, password, confirmPassword);
+    console.log(formData);
   };
 
   return (
@@ -34,30 +37,34 @@ const Signup = () => {
           <label className="text-md font-bold">Name</label>
           <input
             type="text"
+            name="name"
             className="w-full border border-black rounded-lg px-4 py-2 mb-6"
             placeholder="Your name please..."
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleChange}
           />
           <label className="text-md font-bold">Email</label>
           <input
             type="text"
+            name="email"
             className="w-full border border-black rounded-lg px-4 py-2 mb-6"
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
           />
           <label className="text-md font-bold">Password</label>
           <input
             type="password"
+            name="password"
             className="w-full border border-black rounded-lg px-4 py-2 mb-6"
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleChange}
           />
           <label className="text-md font-bold">Confirm Password</label>
           <input
             type="password"
+            name="confirmPassword"
             className="w-full border border-black rounded-lg px-4 py-2"
             placeholder="Password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <div className="mt-1">
