@@ -1,0 +1,22 @@
+Creating a REST api for JSON data
+
+SSR :
+GET/users : gives html of data, server side rendering.
+
+
+CSR:
+GET/api/users    : get all users data in json formate.
+
+
+Dynamic path withh params 
+GET/api/users/:id
+:id -> is dynamic/ variable, or we can get id from req.params.id
+
+GET/api/users/1  : get 1st user
+GET/api/users/2  : get 2nd user
+
+POST/api/user    : create new user in DB
+
+PATCH/api/users/1 : edit 1st user 
+
+DELETE/api/users/1  : delete user 1
